@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+     link(rel='stylesheet', href='https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')   
+  body
+     if(success)
+             .alert.alert-success(align='center') 
+                     strong Successfully registered.Now you can login.
+     .modal-body.row
+
+      .col-md-6
+         include login.pug
+      .col-md-6
+         include register.pug
