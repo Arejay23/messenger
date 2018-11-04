@@ -7,6 +7,8 @@ var express = require('express'),
 
 var port = 3000;
 
+app.use(express.static("."));
+
 server.listen(port,function(){
     console.log("Listening server at port " + port);
     
