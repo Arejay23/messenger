@@ -17,5 +17,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RupalJain97/messenger.git"
+  },
+  "keywords": [
+    "customer",
+    "chat",
+    "messenger"
+  ],
+  "bugs": {
+    "url": "https://github.com/RupalJain97/messenger/issues"
+  },
+  "homepage": "https://github.com/RupalJain97/messenger#readme"
 }
