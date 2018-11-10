@@ -1,12 +1,27 @@
 
 $(document).ready(function () {
-    $('#myModal').modal('show');
+    $('#popup').modal('show');
 });
+
+
+
+function popup_func(){
+    var name = $('#user_name').val();
+    if(name == ""){
+        $('#error').html("<i>Name can't be left blank...</i>");
+    } else {
+        $('#popup').modal('hide');
+    }
+
+    if (name[0] == name[0].toLowerCase()) {
+        name = name[0].toUpperCase() + name.slice(1);
+    }
+    document.getElementById('handle').value = name;
+}
 
 // make connection on client side
 var sockets = io.connect('http://localhost:3000');
 
-var handle = document.getElementById('handle');
 var message = document.getElementById('message');
 var output = document.getElementById('output');
 var btn = document.getElementById('submit');
@@ -32,7 +47,7 @@ sockets.on('typing', function (data) {
     if (data[0] == data[0].toLowerCase()) {
         data = data[0].toUpperCase() + data.slice(1);
     }
-    typing.innerHTML = '<span>' + data + ' is typing a message....</span>';
+    typing.innerHTML = '' + data + ' is typing a message....';
 });
 
 //to output data on screen

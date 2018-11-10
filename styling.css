@@ -58,7 +58,7 @@
     padding: 2px;
     margin: 0px;
     width: 50%;
-    height: 230px;
+    height: 255px;
     background-color: rgb(233, 243, 243);
     overflow-y: auto;
     overflow-x: auto;
@@ -67,14 +67,18 @@
 p {
     margin-bottom: 0px !important;
     /* overflow: auto; */
-
 }
 
 #typing {
-    padding: 2px;
+    padding: 2px !important;
+    padding-left: 4px !important;
+    padding-bottom: 4px !important;
     margin: 0px;
     width: 50%;
     height: 20px;
+    font-size: 15px;
+    font-family: 'Times New Roman';
+    font-style: italic;
     background-color: rgb(233, 243, 243);
 }
 
@@ -211,38 +215,3 @@ footer {
     padding-top: 5px;
 }
 
-
-
-/* .button:hover {
-    background-color: yellow;
-    cursor: pointer;
-} */
-
-/*hovering effect*/
-
-/* .intro {
-    font-size: 20px;
-    font-style: italic;
-} */
-
-/* .topic {
-    font-size: 30px;
-    font-weight: bolder;
-    color: blue;
-} */
-
-/* #content {
-    font-style: italic;
-    font-size: 28px;
-    color: blue;
-}
-
-#pts {
-    font-size: 30px;
-    font-style: oblique;
-    font-weight: normal;
-} */
-
-/* #list {
-    color: black;
-} */

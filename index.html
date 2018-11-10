@@ -42,15 +42,15 @@
                     </div>
                     <div class="container-fluid" style="padding-left: 2px;
                     padding-right: 2px;">
-                        <div class="row">
-                            <!-- Handle name-->
+                        <!-- <div class="row">
+                            Handle name
                             <div class="col-12 name">Hello! How can I help You?</div>
-                        </div>
+                        </div> -->
 
                         <div class="row">
                             <div class="col-12" id="output">
                             </div>
-                            <div class="col-12" id="typing"></div>
+                            <div class="col-12" id="typing" style="padding: 5px;"></div>
                         </div>
 
                         <div class="row">
@@ -144,17 +144,18 @@
     </footer>
 
 
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="popup" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Hello! Please enter your name...</h5>
                 </div>
                 <div class="modal-body">
-                    <input id="user" class="form-control" type="text" placeholder="Enter your name here...">
+                    <p id="error"></p>
+                    <input id="user_name" class="form-control" type="text" placeholder="Enter your name here..." >
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Submit</button>
+                    <button type="button" id="popup_submit" class="btn btn-primary" onclick="popup_func()">Submit</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>   
                 </div>
             </div>
