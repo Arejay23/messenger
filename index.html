@@ -33,6 +33,13 @@
                 </div>
 
                 <div class="panel-collapse collapse" id="chatbox">
+                    <div class="modal fade" role="dialog" aria-labelledby="mysmallmodallablled">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <input id="name" class="form-control" type="text" placeholder="Type Message here...">
+                            </div>
+                        </div>
+                    </div>
                     <div class="container-fluid" style="padding-left: 2px;
                     padding-right: 2px;">
                         <div class="row">
@@ -107,7 +114,9 @@
 
     </div>
     <div id="div2">
-        <p class="para"><strong><em>Puzzeled what to do next?<br>Want to fulfill your childhood dream?<br>Here we are. This website will give you a clear idea and a clear path to fulfill your dream and deciding a suitable career for you. </p></strong></em>
+        <p class="para"><strong><em>Puzzeled what to do next?<br>Want to fulfill your childhood dream?<br>Here we are.
+                    This website will give you a clear idea and a clear path to fulfill your dream and deciding a
+                    suitable career for you. </p></strong></em>
 
         <p class="stream"><em>There are mainly three stream offered to students after class 10 in india</em> </p>
     </div>
@@ -116,7 +125,8 @@
 
     <p id='demo' style="display:none"><strong>SCIENCE:</strong> Deals with courses in Medical sciences and Engineering.<br>
         <a href="science.html"> Click to know more about this stream</a><br>
-        <strong>COMMERCE:</strong> Deals with courses on trade and business <br><a href="commerce.html"> Click to know more about this stream</a><br>
+        <strong>COMMERCE:</strong> Deals with courses on trade and business <br><a href="commerce.html"> Click to know
+            more about this stream</a><br>
         <strong>ARTS:</strong> Deals with a very wide range of courses such as History, Geography, Political Science,
         Psychology, Sociology, languages, Anthropology, Human Resources, journalism etc.
         <br><a href="arts.html"> Click to know more about this stream</a><br><br>
@@ -133,61 +143,26 @@
 
     </footer>
 
-    <!-- <script src="javascript/js1.js"></script> -->
 
-    <script>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hello! Please enter your name...</h5>
+                </div>
+                <div class="modal-body">
+                    <input id="user" class="form-control" type="text" placeholder="Enter your name here...">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>   
+                </div>
+            </div>
+        </div>
+    </div>
 
-        // make connection on client side
-        var sockets = io.connect('http://localhost:3000');
+    <script src="/javaScript.js"></script>
 
-        var handle = document.getElementById('handle');
-        var message = document.getElementById('message');
-        var output = document.getElementById('output');
-        var btn = document.getElementById('submit');
-        var typing = document.getElementById('typing');
-
-        //functionality of btn
-        btn.onclick = function () {
-            sockets.emit('chat', {
-                message: message.value,
-                handle: handle.value
-            });
-
-            message.value = "";
-        }
-
-        //to braodacast  typing msg
-        message.onkeypress = function () {
-            sockets.emit('typing', handle.value);
-
-        };
-
-        sockets.on('typing', function (data) {
-
-            if (data[0] == data[0].toLowerCase()) {
-                data = data[0].toUpperCase() + data.slice(1);
-            }
-            typing.innerHTML = '<span>' + data + ' is typing a message....</span>';
-
-        });
-
-        //to output data on screen
-        sockets.on('chat', function (data) {
-            typing.innerHTML = '';
-
-            if (data.handle[0] == data.handle[0].toLowerCase()) {
-                data.handle = data.handle[0].toUpperCase() + data.handle.slice(1);
-            }
-            if (data.message[0] == data.message[0].toLowerCase()) {
-                data.message = data.message[0].toUpperCase() + data.message.slice(1);
-            }
-
-            output.innerHTML += '<p><strong><i>' + data.handle + ': </i></strong>' + data.message + '</p>';
-
-            message.value = '';
-        });
-
-    </script>
 </body>
 
 </html>
