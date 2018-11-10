@@ -16,7 +16,8 @@ server.listen(port,function(){
 
 //to recieve events on server side
 io.sockets.on('connection', function(socket){
-    console.log("Socket created :" + socket.id)
+    console.log("Socket created :" + socket.id);
+    
     socket.on('chat', function(data){
         io.sockets.emit('chat', data);
         
@@ -32,7 +33,7 @@ io.sockets.on('connection', function(socket){
 
 app.get("/",function(req,res){
     // console.log("entered app.get");
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/index2.html');
 });
 
 
