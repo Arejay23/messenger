@@ -59,3 +59,4 @@ sockets.on('chat', function (data) {
     output.innerHTML += '<p><strong><i>' + data.handle + ': </i></strong>' + data.message + '</p>';
     message.value = '';
 });
+
