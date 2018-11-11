@@ -3,11 +3,9 @@ $(document).ready(function () {
     $('#popup').modal('show');
 });
 
-
-
-function popup_func(){
+function popup_func() {
     var name = $('#user_name').val();
-    if(name == ""){
+    if (name == "") {
         $('#error').html("<i>Name can't be left blank...</i>");
     } else {
         $('#popup').modal('hide');
@@ -19,7 +17,7 @@ function popup_func(){
     document.getElementById('handle').value = name;
 }
 
-// make connection on client side
+// Make connection on client side
 var sockets = io.connect('http://localhost:3000');
 
 var message = document.getElementById('message');
@@ -27,30 +25,28 @@ var output = document.getElementById('output');
 var btn = document.getElementById('submit');
 var typing = document.getElementById('typing');
 
-//functionality of btn
+// Functionality of btn
 btn.onclick = function () {
     sockets.emit('chat', {
         message: message.value,
         handle: handle.value
     });
-
     message.value = "";
 }
 
-//to braodacast typing msg
+// To braodacast typing msg
 message.onkeypress = function () {
     sockets.emit('typing', handle.value);
 };
 
 sockets.on('typing', function (data) {
-
     if (data[0] == data[0].toLowerCase()) {
         data = data[0].toUpperCase() + data.slice(1);
     }
     typing.innerHTML = '' + data + ' is typing a message....';
 });
 
-//to output data on screen
+// To output data on screen
 sockets.on('chat', function (data) {
     typing.innerHTML = '';
 
